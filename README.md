@@ -1,7 +1,6 @@
 # gmod-linux-patcher
 Make native Linux Garry's Mod playable and fast.
 ### Requirements (mostly for DXVK):
-- git
 - wine 3.10 or newer
 - Meson build system (at least version 0.49)
 - Mingw-w64 compiler and headers (at least version 10.0)
