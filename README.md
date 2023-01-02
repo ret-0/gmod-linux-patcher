@@ -8,9 +8,7 @@ Make native Linux Garry's Mod playable and fast.
 - glslang compiler
 
 ### Installation and Usage
-```
-sh gmod-linux-patcher.sh
-```
+`wget -q https://raw.githubusercontent.com/ret-0/gmod-linux-patcher/master/gmod-linux-patcher.sh && sh gmod-linux-patcher.sh`
 
 ### Manual Patching
 1. Right-click on Garry's Mod in Steam -> Properties -> Betas -> Select 'x86_64 - Chromium + 64-bit binaries'.
