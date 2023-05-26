@@ -45,19 +45,8 @@ if ! grep -q 'gmod-linux-patcher' "$DIRECTORY/hl2.sh"; then
 	sed -i "s/ulimit -n 2048/# gmod-linux-patcher\nulimit -n $(ulimit -Hn)\nexport mesa_glthread=true/g" "$DIRECTORY/hl2.sh"
 
 	echo '> Modifying game arguments...'
-	NEW='LD_PRELOAD=libdxvk_d3d9.so exec \${GAME_DEBUGGER} "\${GAMEROOT}"/\${GAMEEXE} -malloc=system -swapcores -vulkan "\$@"'
-	sed -i 's/exec ${GAME_DEBUGGER} "${GAMEROOT}"\/${GAMEEXE} "$@"/# gmod-linux-patcher\n        LD_PRELOAD=libdxvk_d3d9.so exec ${GAME_DEBUGGER} "${GAMEROOT}"\/${GAMEEXE} -malloc=system -swapcores -dxlevel 98 -vulkan "$@"/g' "$DIRECTORY/hl2.sh"
-
-	echo '> Compiling and installing libdxvk_d3d9.so into bin/linux64/...'
-	OLDPWD="$PWD"
-	git clone --recursive https://github.com/doitsujin/dxvk.git /tmp/dxvk/
-	cd /tmp/dxvk/
-	./package-native.sh master build
-	cd build
-	tar -xf dxvk-native-master.tar.gz
-	cd "$OLDPWD"
-	cp /tmp/dxvk/build/usr/lib/libdxvk_d3d9.so "$DIRECTORY/bin/linux64/"
-	rm -rf /tmp/dxvk/
+	NEW='exec \${GAME_DEBUGGER} "\${GAMEROOT}"/\${GAMEEXE} -malloc=system -swapcores -vulkan "\$@"'
+	sed -i 's/exec ${GAME_DEBUGGER} "${GAMEROOT}"\/${GAMEEXE} "$@"/# gmod-linux-patcher\n        exec ${GAME_DEBUGGER} "${GAMEROOT}"\/${GAMEEXE} -malloc=system -swapcores -dxlevel 98 -vulkan "$@"/g' "$DIRECTORY/hl2.sh"
 fi
 
 echo '> Done!'

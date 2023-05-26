@@ -1,10 +1,5 @@
 # gmod-linux-patcher
 Make native Linux Garry's Mod playable and fast.
-### Requirements (mostly for DXVK):
-- wine 3.10 or newer
-- Meson build system (at least version 0.49)
-- Mingw-w64 compiler and headers (at least version 10.0)
-- glslang compiler
 
 ### Installation and Usage
 `wget -q https://raw.githubusercontent.com/ret-0/gmod-linux-patcher/master/gmod-linux-patcher.sh && sh gmod-linux-patcher.sh`
@@ -21,11 +16,4 @@ filesystem_max_stdio_read [ulimit -Hn]
 ```
 4. Replace `ulimit -n 2048` in hl2.sh with `ulimit -n [ulimit -Hn]`
 5. Add `export mesa_glthread=true` before game execution in hl2.sh.
-6. Find `exec ${GAME_DEBUGGER} "${GAMEROOT}"/${GAMEEXE} "$@"` and replace it with `LD_PRELOAD=libdxvk_d3d9.so exec ${GAME_DEBUGGER} "${GAMEROOT}"/${GAMEEXE} -malloc=system -swapcores -dxlevel 98 -vulkan "$@"`
-7. Compile native DXVK.
-```
-git clone --recursive https://github.com/doitsujin/dxvk.git
-cd dxvk
-./package-native.sh master build
-```
-8. Copy build/usr/lib/* to GarrysMod/bin/linux64/.
+6. Find `exec ${GAME_DEBUGGER} "${GAMEROOT}"/${GAMEEXE} "$@"` and replace it with `exec ${GAME_DEBUGGER} "${GAMEROOT}"/${GAMEEXE} -malloc=system -swapcores -dxlevel 98 -vulkan "$@"`
