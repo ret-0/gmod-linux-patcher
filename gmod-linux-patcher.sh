@@ -23,7 +23,7 @@ read
 echo "> Patching $DIRECTORY!"
 
 echo '> Downloading and applying GModCEFCodecFix...'
-wget -q https://github.com/solsticegamestudios/GModCEFCodecFix/releases/download/20230621/GModCEFCodecFix-Linux -O /tmp/GModCEFCodecFix-Linux
+wget -q https://github.com/solsticegamestudios/GModCEFCodecFix/releases/latest/download/GModCEFCodecFix-Linux -O /tmp/GModCEFCodecFix-Linux
 chmod +x /tmp/GModCEFCodecFix-Linux
 echo 'no' | /tmp/GModCEFCodecFix-Linux # Fuck you.
 
