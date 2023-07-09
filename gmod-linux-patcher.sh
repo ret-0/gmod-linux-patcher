@@ -23,10 +23,9 @@ read
 echo "> Patching $DIRECTORY!"
 
 echo '> Downloading and applying GModCEFCodecFix...'
-wget -q https://github.com/solsticegamestudios/GModCEFCodecFix/releases/download/20221219/GModCEFCodecFix-Linux -O /tmp/GModCEFCodecFix-Linux
+wget -q https://github.com/solsticegamestudios/GModCEFCodecFix/releases/download/20230621/GModCEFCodecFix-Linux -O /tmp/GModCEFCodecFix-Linux
 chmod +x /tmp/GModCEFCodecFix-Linux
 echo 'no' | /tmp/GModCEFCodecFix-Linux # Fuck you.
-rm -f /tmp/GModCEFCodecFix-Linux
 
 if ! grep -q 'gmod-linux-patcher' "$DIRECTORY/garrysmod/cfg/valve.rc"; then
 	echo '> Setting mem_max_heapsize and filesystem_max_stdio_read in garrysmod/cfg/valve.rc...'
