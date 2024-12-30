@@ -2,7 +2,7 @@
 
 DIRECTORY="$1"
 if [ "$#" -ne 1 ]; then
-	read -p "Enter Garry's Mod directory (e.g: ~/.steam/steam/steamapps/common/GarrysMod/): " DIRECTORY
+	read -p "Enter Garry's Mod directory (e.g: /home/hermes/.steam/steam/steamapps/common/GarrysMod/): " DIRECTORY
 fi
 
 if ! [ -d "$DIRECTORY" ]; then
